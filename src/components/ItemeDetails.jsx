@@ -37,7 +37,7 @@ function ItemDetails() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:3000/items/${item.id}`)
+            await axios.delete(`https://campus-connect-server-1.onrender.com/items/${item.id}`)
             alert("Item deleted successfully")
             navigate("/")
         }

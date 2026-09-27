@@ -14,7 +14,7 @@ function Login() {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/users?email=${encodeURIComponent(email)}`
+      `https://campus-connect-server-1.onrender.com/users?email=${encodeURIComponent(email)}`
     );
 
     if (!response.ok) {

@@ -51,7 +51,7 @@ function ReportItem() {
 
         try {
             const response = await axios.post(
-                "http://localhost:3000/items",
+                "https://campus-connect-server-1.onrender.com/items",
                 newItem
             );
 

@@ -22,7 +22,7 @@ function Home() {
 
   const getItems = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/items");
+      const response = await axios.get("https://campus-connect-server-1.onrender.com/items");
       setItems(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("Failed to fetch items:", error);

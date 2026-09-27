@@ -26,7 +26,7 @@ function Edit() {
     const getItem = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3000/items/${id}`
+                `https://campus-connect-server-1.onrender.com/items/${id}`
             )
             const item = response.data
 
@@ -84,7 +84,7 @@ function Edit() {
 
 
             await axios.put(
-                `http://localhost:3000/items/${id}`,
+                `https://campus-connect-server-1.onrender.com/items/${id}`,
                 updatedItem
             );
 

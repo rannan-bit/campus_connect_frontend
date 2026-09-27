@@ -26,7 +26,7 @@ function Register() {
 
       // Check if email already exists
       const response = await fetch(
-        `http://localhost:3000/users?email=${formData.email}`
+        `https://campus-connect-server-1.onrender.com/users?email=${formData.email}`
       );
 
       const users = await response.json();
@@ -38,7 +38,7 @@ function Register() {
 
       // Create user
       const registerResponse = await fetch(
-        "http://localhost:3000/users",
+        "https://campus-connect-server-1.onrender.com/users",
         {
           method: "POST",
 
