@@ -20,7 +20,7 @@ function ItemDetails() {
     const getItem = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3000/items/${id}`
+                `https://campus-connect-server-1.onrender.com/items/${id}`
             )
             setItem(response.data)
         }
