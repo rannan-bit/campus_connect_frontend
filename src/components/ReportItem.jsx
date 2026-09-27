@@ -15,7 +15,7 @@ function ReportItem() {
         userName: "",
         email: "",
         description: "",
-        image: ""
+        phone: ""
     });
 
     const handleChange = (e) => {
@@ -46,7 +46,8 @@ function ReportItem() {
             image: formData.image,
             userId: user.id,
             userName: user.name,
-            email: user.email
+            email: user.email,
+            phone: user.phone
         };
 
         try {
@@ -72,68 +73,7 @@ function ReportItem() {
         }
     };
 
-    const handleImageChange = (e) => {
-    const file = e.target.files[0];
 
-    if (!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-        const img = new Image();
-
-        img.onload = () => {
-            const canvas = document.createElement("canvas");
-
-            const maxWidth = 150;
-            const maxHeight = 150;
-
-            let width = img.width;
-            let height = img.height;
-
-            if (width > height) {
-                height = height * (maxWidth / width);
-                width = maxWidth;
-            } else {
-                width = width * (maxHeight / height);
-                height = maxHeight;
-            }
-
-            canvas.width = Math.round(width);
-            canvas.height = Math.round(height);
-
-            const ctx = canvas.getContext("2d");
-
-            ctx.drawImage(
-                img,
-                0,
-                0,
-                canvas.width,
-                canvas.height
-            );
-
-            const compressedImage = canvas.toDataURL(
-                "image/jpeg",
-                0.2
-            );
-
-            console.log(
-                "Base64 size:",
-                Math.round(compressedImage.length / 1024),
-                "KB"
-            );
-
-            setFormData({
-                ...formData,
-                image: compressedImage
-            });
-        };
-
-        img.src = event.target.result;
-    };
-
-    reader.readAsDataURL(file);
-};
 
     return (
         <div className="report-page">
@@ -333,6 +273,27 @@ function ReportItem() {
                                                     name="email"
                                                     placeholder="example@gmail.com"
                                                     value={formData.email}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+
+                                            </Form.Group>
+                                        </Col>
+
+                                        {/*phone*/}
+
+                                        <Col md={6}>
+                                            <Form.Group className="mb-4">
+
+                                                <Form.Label>
+                                                    Phone number
+                                                </Form.Label>
+
+                                                <Form.Control
+                                                    type="number"
+                                                    name="phone"
+                                                    placeholder="+91 xxxxxxxxxx"
+                                                    value={formData.phone}
                                                     onChange={handleChange}
                                                     required
                                                 />
