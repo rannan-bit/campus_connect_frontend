@@ -290,7 +290,7 @@ function ReportItem() {
                                                 </Form.Label>
 
                                                 <Form.Control
-                                                    type="number"
+                                                    type="tel"
                                                     name="phone"
                                                     placeholder="+91 xxxxxxxxxx"
                                                     value={formData.phone}
